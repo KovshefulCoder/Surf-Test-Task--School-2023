@@ -33,6 +33,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
@@ -60,95 +61,25 @@ import ru.kovsh.surftesttask.ui.theme.BottomBarColor
 import ru.kovsh.surftesttask.ui.theme.MainTextColor
 import ru.kovsh.surftesttask.ui.theme.typography
 import ru.kovsh.surftesttask.viewModels.CocktailEditViewModel
+import ru.kovsh.surftesttask.viewModels.CocktailsViewModel
 
 @Composable
 internal fun MainScreen(
     onCocktailEditClicked: (Cocktail) -> Unit,
+    viewModel: CocktailsViewModel
 ) {
+    val cocktails by viewModel.cocktails.collectAsState()
     MainScreen(
-        listOf(
-            Cocktail(
-                0,
-                "Title1",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                1,
-                "Title2",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                2,
-                "Title3",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                3,
-                "Title4",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                4,
-                "Title5",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                5,
-                "Title6",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                6,
-                "Title7",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                7,
-                "Title8",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-            Cocktail(
-                8,
-                "Title9",
-                "description description desctiption",
-                "recipe recipe recipe",
-            ),
-
-        ),
+        cocktails = cocktails,
         onCocktailEditClicked = onCocktailEditClicked
     )
 }
-
-//@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
-//@Composable
-//fun PrevMainScreen() {
-//    MainScreen(
-//        listOf(
-//            Cocktail(0, "Title1", "", "", listOf()),
-//            Cocktail(0, "Title2", "", "", listOf()),
-//            Cocktail(0, "Title3", "", "", listOf()),
-//            Cocktail(0, "Title4", "", "", listOf()),
-//            Cocktail(0, "Title5", "", "", listOf()),
-//            Cocktail(0, "Title6", "", "", listOf()),
-//            Cocktail(0, "Title7", "", "", listOf()),
-//            Cocktail(0, "Title8", "", "", listOf()),
-//        )
-//    )
-//}
 
 @OptIn(ExperimentalMaterialApi::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 private fun MainScreen(
-    cocktalis: List<Cocktail>,
+    cocktails: List<Cocktail>,
     onCocktailEditClicked: (Cocktail) -> Unit,
 ) {
     var bottomSheetState =
@@ -160,7 +91,7 @@ private fun MainScreen(
         ModalBottomSheetLayout(
             sheetContent = {
                 CocktailDerailsScreen(
-                    cocktail = cocktalis.find { it.id == pickedCocktailID } ?: Cocktail(),
+                    cocktail = cocktails.find { it.id == pickedCocktailID } ?: Cocktail(),
                     onEditClicked = {
                         coroutineScope.launch {
                             bottomSheetState.hide()
@@ -234,7 +165,7 @@ private fun MainScreen(
                         modifier = Modifier
                             .fillMaxWidth().padding(bottom = 64.dp)
                     ) {
-                        items(cocktalis) { cocktail ->
+                        items(cocktails) { cocktail ->
                             CocktailCard(
                                 cocktail,
                                 onCocktailClicked = {

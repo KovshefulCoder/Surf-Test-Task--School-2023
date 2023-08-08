@@ -53,9 +53,15 @@ fun CocktailBar() {
             startDestination = "Introduction"
         ) {
             introduction(
-                onCocktailCreate = {
-                    Log.i("navigation", "onCocktailCreate")
+                onCocktailCreated = {
                     navController.navigate("FirstCocktailCreate")
+                },
+                onIntroductionSkip = {
+                    navController.navigate("MainApp", navOptions {
+                        popUpTo("FirstCocktail") {
+                            inclusive = true
+                        }
+                    })
                 }
             )
             createFirstCocktail(
