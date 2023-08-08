@@ -139,7 +139,7 @@ internal fun MainScreen(
                 "description description desctiption",
                 "recipe recipe recipe",
                 listOf("first", "second", "third", "fourth", "fifth")
-            )
+            ),
 
         ),
         onCocktailEditClicked = onCocktailEditClicked
@@ -181,7 +181,7 @@ private fun MainScreen(
                 CocktailDerailsScreen(
                     cocktail = cocktalis.find { it.id == pickedCocktailID } ?: Cocktail(),
                     onEditClicked = {
-                        coroutineScope.launch() {
+                        coroutineScope.launch {
                             bottomSheetState.hide()
                         }
                         onCocktailEditClicked(it)
@@ -251,7 +251,7 @@ private fun MainScreen(
                         verticalArrangement = Arrangement.spacedBy(10.dp),
                         horizontalArrangement = Arrangement.spacedBy(10.dp),
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .fillMaxWidth().padding(bottom = 64.dp)
                     ) {
                         items(cocktalis) { cocktail ->
                             CocktailCard(
@@ -265,11 +265,7 @@ private fun MainScreen(
                                 }
                             )
                         }
-                        item {
-                            Spacer(modifier = Modifier.height(65.dp))
-                        }
                     }
-
                 }
             }
         }
