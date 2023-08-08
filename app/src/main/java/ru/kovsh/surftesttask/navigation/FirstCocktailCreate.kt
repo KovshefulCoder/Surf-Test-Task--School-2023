@@ -8,14 +8,16 @@ import ru.kovsh.surftesttask.viewModels.CocktailEditViewModel
 
 
 fun NavGraphBuilder.createFirstCocktail(
-    onCocktailCreated : () -> Unit
+    onCocktailCreated : () -> Unit,
+    onBackClicked: () -> Unit
 ) {
     composable(route = "FirstCocktailCreate")
     {
         val cocktailEditViewModel: CocktailEditViewModel = hiltViewModel()
         EditCocktailScreen(
             onSave = onCocktailCreated,
-            viewModel = cocktailEditViewModel
+            onBackClicked = onBackClicked,
+            viewModel = cocktailEditViewModel,
         )
     }
 }

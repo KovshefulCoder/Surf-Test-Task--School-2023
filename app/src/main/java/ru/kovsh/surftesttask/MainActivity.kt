@@ -59,7 +59,8 @@ fun CocktailBar() {
             createFirstCocktail(
                 onCocktailCreated = {
                     navController.navigate("MainApp")
-                }
+                },
+                onBackClicked = { navController.popBackStack() }
             )
         }
         navigation(

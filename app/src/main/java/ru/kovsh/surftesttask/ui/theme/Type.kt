@@ -28,7 +28,7 @@ val typography = Typography(
     h2 = TextStyle(
         fontFamily = didactGothic,
         fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
+        fontSize = 30.sp,
         color = Black
     ),
     h4 = TextStyle(
