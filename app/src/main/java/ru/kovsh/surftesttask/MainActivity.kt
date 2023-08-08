@@ -1,6 +1,7 @@
 package ru.kovsh.surftesttask
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,19 +11,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.navigation
+import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
+import ru.kovsh.surftesttask.navigation.createFirstCocktail
+import ru.kovsh.surftesttask.navigation.introduction
+import ru.kovsh.surftesttask.navigation.myCocktails
+import ru.kovsh.surftesttask.ui.theme.Backgroud
 import ru.kovsh.surftesttask.ui.theme.SurfTestTaskTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SurfTestTaskTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Backgroud
                 ) {
-                    Greeting("Android")
+                    CocktailBar()
                 }
             }
         }
@@ -30,17 +40,40 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun CocktailBar() {
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = "FirstCocktail"
+    ) {
+        navigation(
+            route = "FirstCocktail",
+            startDestination = "Introduction"
+        ) {
+            introduction(
+                onCocktailCreate = {
+                    Log.i("navigation", "onCocktailCreate")
+                    navController.navigate("FirstCocktailCreate")
+                }
+            )
+            createFirstCocktail(
+                onCocktailCreated = {
+                    navController.navigate("MainApp")
+                }
+            )
+        }
+        navigation(
+            route = "MainApp",
+            startDestination = "MyCocktails"
+        ) {
+            myCocktails(
+                onCocktailCreate = {
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SurfTestTaskTheme {
-        Greeting("Android")
+                },
+                onCocktailClick = {
+
+                }
+            )
+        }
     }
 }
