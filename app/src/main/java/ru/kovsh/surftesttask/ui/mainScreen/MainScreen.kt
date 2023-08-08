@@ -72,73 +72,54 @@ internal fun MainScreen(
                 "Title1",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf(
-                    "first",
-                    "second",
-                    "third",
-                    "fourth",
-                    "fifth",
-                    "sixth",
-                    "seventh",
-                    "eighth",
-                    "ninth"
-                )
             ),
             Cocktail(
                 1,
                 "Title2",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 2,
                 "Title3",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 3,
                 "Title4",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 4,
                 "Title5",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 5,
                 "Title6",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 6,
                 "Title7",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 7,
                 "Title8",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
             Cocktail(
                 8,
                 "Title9",
                 "description description desctiption",
                 "recipe recipe recipe",
-                listOf("first", "second", "third", "fourth", "fifth")
             ),
 
         ),
@@ -315,7 +296,6 @@ fun PrevDetails() {
             "Title",
             "description",
             "recipe",
-            listOf("first", "second", "third", "fourth", "fifth")
         ), {}
     )
 }
@@ -327,6 +307,7 @@ fun CocktailDerailsScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val lazyState = rememberLazyListState()
+    val ingredients = listOf<String>() // replace to query to database TODO()
     Box(
         modifier = Modifier
             .height(478.dp)
@@ -362,7 +343,7 @@ fun CocktailDerailsScreen(
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(32.dp))
-                for (ingredient in cocktail.ingredients) {
+                for (ingredient in ingredients) {
                     Text(
                         text = ingredient,
                         color = MainTextColor,

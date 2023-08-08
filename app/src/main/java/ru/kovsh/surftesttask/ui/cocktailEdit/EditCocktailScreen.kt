@@ -67,6 +67,7 @@ internal fun EditCocktailScreen(
     viewModel: CocktailEditViewModel,
 ) {
     val state by viewModel.state.collectAsState()
+
     EditCocktailScreen(
         ingredients = state.ingredients,
         title = state.title,
@@ -87,6 +88,7 @@ internal fun EditCocktailScreen(
             } else {
                 //maybe optional
                 viewModel.onChangeDataValidityStatus(true)
+                viewModel.saveCocktail()
                 onSave()
             }
         }

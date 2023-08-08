@@ -10,10 +10,15 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ru.kovsh.surftesttask.entities.Cocktail
 import ru.kovsh.surftesttask.entities.CocktailEditStates
+import ru.kovsh.surftesttask.entities.Ingredient
+import ru.kovsh.surftesttask.model.room.CocktailDao
+import ru.kovsh.surftesttask.model.room.IngredientDao
 import javax.inject.Inject
 
 @HiltViewModel
 class CocktailEditViewModel @Inject constructor(
+    private val cocktailDao: CocktailDao,
+    private val ingredientDao: IngredientDao
 ) : ViewModel() {
     private val _state = MutableStateFlow(CocktailEditStates())
     val state: StateFlow<CocktailEditStates> = _state.asStateFlow()
@@ -22,14 +27,27 @@ class CocktailEditViewModel @Inject constructor(
 
     }
 
+    fun saveCocktail() {
+        viewModelScope.launch {
+            cocktailDao.insert(
+                Cocktail(
+                    title = _state.value.title,
+                    description = _state.value.description,
+                    recipe = _state.value.recipe
+                )
+            )
+        }
+    }
+
     fun updateWholeCocktail(cocktail: Cocktail) {
+        val ingredients = listOf<String>() // replace to query to database TODO()
         viewModelScope.launch {
             _state.update { value ->
                 value.copy(
                     title = cocktail.title,
                     description = cocktail.description,
                     recipe = cocktail.recipe,
-                    ingredients = cocktail.ingredients,
+                    ingredients = ingredients,
                     isValidDataInput = true
                 )
             }
