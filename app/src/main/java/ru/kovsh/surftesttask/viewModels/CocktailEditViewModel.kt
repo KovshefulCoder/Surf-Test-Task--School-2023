@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import ru.kovsh.surftesttask.entities.Cocktail
 import ru.kovsh.surftesttask.entities.CocktailEditStates
 import javax.inject.Inject
 
@@ -19,6 +20,20 @@ class CocktailEditViewModel @Inject constructor(
 
     fun addIngredient() {
 
+    }
+
+    fun updateWholeCocktail(cocktail: Cocktail) {
+        viewModelScope.launch {
+            _state.update { value ->
+                value.copy(
+                    title = cocktail.title,
+                    description = cocktail.description,
+                    recipe = cocktail.recipe,
+                    ingredients = cocktail.ingredients,
+                    isValidDataInput = true
+                )
+            }
+        }
     }
 
     fun onChangeDataValidityStatus(status: Boolean) {

@@ -49,6 +49,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.kovsh.surftesttask.R
+import ru.kovsh.surftesttask.entities.Cocktail
 import ru.kovsh.surftesttask.ui.theme.Backgroud
 import ru.kovsh.surftesttask.ui.theme.BlueIconsColor
 import ru.kovsh.surftesttask.ui.theme.ChipColor

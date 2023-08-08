@@ -7,11 +7,12 @@ import ru.kovsh.surftesttask.ui.introduction.IntroductionScreen
 import ru.kovsh.surftesttask.ui.mainScreen.MainScreen
 
 fun NavGraphBuilder.myCocktails(
-    onCocktailCreate : () -> Unit,
+    onCocktailEdit : (Cocktail) -> Unit,
 ) {
     composable(route = "MyCocktails")
     {
         MainScreen(
+            onCocktailEditClicked = onCocktailEdit
         )
     }
 }

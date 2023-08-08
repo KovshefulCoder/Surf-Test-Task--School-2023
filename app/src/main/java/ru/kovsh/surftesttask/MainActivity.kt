@@ -15,7 +15,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
 import dagger.hilt.android.AndroidEntryPoint
+import ru.kovsh.surftesttask.navigation.cocktailEdit
 import ru.kovsh.surftesttask.navigation.createFirstCocktail
 import ru.kovsh.surftesttask.navigation.introduction
 import ru.kovsh.surftesttask.navigation.myCocktails
@@ -58,7 +60,11 @@ fun CocktailBar() {
             )
             createFirstCocktail(
                 onCocktailCreated = {
-                    navController.navigate("MainApp")
+                    navController.navigate("MainApp", navOptions {
+                        popUpTo("FirstCocktail") {
+                            inclusive = true
+                        }
+                    })
                 },
                 onBackClicked = { navController.popBackStack() }
             )
@@ -68,13 +74,17 @@ fun CocktailBar() {
             startDestination = "MyCocktails"
         ) {
             myCocktails(
-                onCocktailCreate = {
-
-                },
-                onCocktailClick = {
-
+                onCocktailEdit = {
+                    navController.navigate("CocktailEdit")
                 }
             )
+            cocktailEdit(
+                onSave = {
+                    navController.navigate("MyCocktails")
+                },
+                onBackClicked = { navController.popBackStack() }
+            )
+
         }
     }
 }
