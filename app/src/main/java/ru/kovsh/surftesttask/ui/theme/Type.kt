@@ -51,7 +51,7 @@ val typography = Typography(
     ),
     caption = TextStyle(
         fontFamily = didactGothic,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Normal,
         fontSize = 10.sp,
         color = Black
     )

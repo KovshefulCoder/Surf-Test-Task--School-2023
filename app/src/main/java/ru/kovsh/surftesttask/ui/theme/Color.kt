@@ -13,6 +13,7 @@ val TextFieldColor = Color(0xFFD0C4C4)
 val ChipColor = Color(0xFFCAC4D0)
 val ErrorColor = Color(0xFFFF0000)
 val BlueIconsColor = Color(0xFF4B97FF)
+val BottomBarColor = Color(0xFFF6F8F9)
 
 
 val Purple80 = Color(0xFFD0BCFF)

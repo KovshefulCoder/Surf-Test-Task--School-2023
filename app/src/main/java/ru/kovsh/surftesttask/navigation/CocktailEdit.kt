@@ -7,16 +7,18 @@ import ru.kovsh.surftesttask.entities.Cocktail
 import ru.kovsh.surftesttask.ui.cocktailEdit.EditCocktailScreen
 import ru.kovsh.surftesttask.viewModels.CocktailEditViewModel
 
-
-fun NavGraphBuilder.createFirstCocktail(
-    onCocktailCreated : () -> Unit,
+fun NavGraphBuilder.cocktailEdit(
+    onSave : () -> Unit,
     onBackClicked: () -> Unit,
+    cocktail: Cocktail = Cocktail(),
 ) {
-    composable(route = "FirstCocktailCreate")
+    composable(route = "CocktailEdit")
     {
         val cocktailEditViewModel: CocktailEditViewModel = hiltViewModel()
+        if (cocktail == Cocktail())
+            cocktailEditViewModel.updateWholeCocktail(Cocktail())
         EditCocktailScreen(
-            onSave = onCocktailCreated,
+            onSave = onSave,
             onBackClicked = onBackClicked,
             viewModel = cocktailEditViewModel,
         )

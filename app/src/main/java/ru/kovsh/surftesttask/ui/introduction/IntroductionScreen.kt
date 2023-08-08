@@ -118,10 +118,7 @@ fun IntroductionScreen(
                 )
                 IconButton(
                     onClick = {
-                        Log.i("navigation", "onCocktailCreate")
                         onFirstCocktailCreate()
-                        Log.i("navigation", "onCocktailCreated successfully")
-
                     },
                     modifier = Modifier
                         .weight(2f)

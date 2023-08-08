@@ -1,4 +1,4 @@
-package ru.kovsh.surftesttask.ui.cocktailEdit.entities
+package ru.kovsh.surftesttask.entities
 
 data class CocktailEditStates(
     val title: String = "",
