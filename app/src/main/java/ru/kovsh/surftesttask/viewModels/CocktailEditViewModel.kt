@@ -46,6 +46,7 @@ class CocktailEditViewModel @Inject constructor(
             val cocktail = cocktailDao.getCocktailById(cocktailID)
             _state.update { value ->
                 value.copy(
+                    id = cocktail.id,
                     title = cocktail.title,
                     description = cocktail.description,
                     recipe = cocktail.recipe,

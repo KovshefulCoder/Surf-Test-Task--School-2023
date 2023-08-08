@@ -23,18 +23,18 @@ fun NavGraphBuilder.cocktailEdit(
         arguments = listOf(
             navArgument(COCKTAIL_ID) {
                 type = NavType.StringType
-                defaultValue = ""
+                defaultValue = "0"
                 nullable = true
             }
         )
     )
     {NavBackStackEntry ->
-        val cocktailId = NavBackStackEntry.arguments?.getInt(COCKTAIL_ID)
+        val cocktailId = NavBackStackEntry.arguments?.getString(COCKTAIL_ID)
         val cocktailEditViewModel: CocktailEditViewModel = hiltViewModel()
-        if (cocktailId != null && cocktailId != -1 && cocktailId != 0)
+        if (cocktailId != null)
             LaunchedEffect(Unit) {
                 Log.i("cocktailEdit", "cocktailId = $cocktailId")
-                cocktailEditViewModel.updateWholeCocktail(cocktailId)
+                cocktailEditViewModel.updateWholeCocktail(cocktailId.toInt())
             }
         EditCocktailScreen(
             onSave = onSave,
