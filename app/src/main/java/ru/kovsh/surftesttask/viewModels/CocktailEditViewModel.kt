@@ -40,9 +40,10 @@ class CocktailEditViewModel @Inject constructor(
         }
     }
 
-    fun updateWholeCocktail(cocktail: Cocktail) {
+    fun updateWholeCocktail(cocktailID: Int) {
         val ingredients = listOf<String>() // replace to query to database TODO()
         viewModelScope.launch {
+            val cocktail = cocktailDao.getCocktailById(cocktailID)
             _state.update { value ->
                 value.copy(
                     title = cocktail.title,

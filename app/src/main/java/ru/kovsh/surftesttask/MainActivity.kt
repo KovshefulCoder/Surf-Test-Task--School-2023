@@ -81,7 +81,7 @@ fun CocktailBar() {
         ) {
             myCocktails(
                 onCocktailEdit = {
-                    navController.navigate("CocktailEdit")
+                    navController.navigate("CocktailEdit/?id=${it.id}")
                 }
             )
             cocktailEdit(

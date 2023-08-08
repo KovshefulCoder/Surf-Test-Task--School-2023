@@ -12,4 +12,7 @@ interface CocktailDao {
 
     @Upsert
     suspend fun insert(cocktail: Cocktail)
+
+    @Query("SELECT * FROM cocktails WHERE id = :cocktailID")
+    suspend fun getCocktailById(cocktailID: Int): Cocktail
 }
