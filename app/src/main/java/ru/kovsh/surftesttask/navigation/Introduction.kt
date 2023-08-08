@@ -12,7 +12,6 @@ fun NavGraphBuilder.introduction(
     {
         IntroductionScreen(
             onFirstCocktailCreate = {
-                Log.i("navigation", "onCocktailCreate1")
                 onCocktailCreate()
             }
         )

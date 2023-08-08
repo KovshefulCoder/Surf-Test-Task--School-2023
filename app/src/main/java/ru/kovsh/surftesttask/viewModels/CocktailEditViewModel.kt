@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.kovsh.surftesttask.ui.cocktailEdit.entities.CocktailEditStates
+import ru.kovsh.surftesttask.entities.CocktailEditStates
 import javax.inject.Inject
 
 @HiltViewModel
