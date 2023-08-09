@@ -10,7 +10,20 @@ Cocktail Bar - это приложение, которое позволяет п
 
 ### Видео
 
-(Вставьте здесь ссылки на видео или вставьте видео для демонстрации работы приложения)
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/4673fe87-758f-4028-8681-44dd30879f0a
+
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/088e4f65-ba5e-4a72-996e-0190286d2ed5
+
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/80439f3d-3aa5-4019-9458-bb9cd64335a0
+
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/5bf8e600-c3e4-4fd5-bfbb-b74f35cbb9a8
+
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/bdc0438e-0b75-4ba8-80c2-3f12e2ddcc64
+
+
+
+
+
 
 ## Стек
 * Kotlin
