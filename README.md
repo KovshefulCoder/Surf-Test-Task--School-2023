@@ -6,7 +6,14 @@ Cocktail Bar - это приложение, которое позволяет п
 
 ### Скриншоты
 
-(Вставьте здесь скриншоты вашего приложения)
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/d1087be1-976d-4d90-8eb4-1b593f8eb066" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/3e9ed722-afc7-40e0-bb37-0b076f1e525d" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/dbe43118-94dc-448e-9651-cd1fccbb6c9d" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/61459551-a7b3-4e8e-9516-f1bd553017f9" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/8092a846-87e0-4114-b98e-df8ba424b32f" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/d9ae0dd0-f556-416d-b0bd-345fa9263c9e" width="200">
+<img src="https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/708e8d8c-c24a-4895-85c3-caec0f6fbf4d" width="200">
+
 
 ### Видео
 
@@ -18,9 +25,9 @@ https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/80
 
 https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/5bf8e600-c3e4-4fd5-bfbb-b74f35cbb9a8
 
-https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/bdc0438e-0b75-4ba8-80c2-3f12e2ddcc64
+https://github.com/KovshefulCoder/Surf-Test-Task--School-2023/assets/84292117/f90dfaab-3a17-40f8-b12b-1c834e48b5b0
 
-
+[Ссылка на последнее видео в Google Disk](https://drive.google.com/file/d/1sQXrhsvZzB-o7J-ldNoVVvm9rl3n2_kE/view?usp=sharing)
 
 
 
